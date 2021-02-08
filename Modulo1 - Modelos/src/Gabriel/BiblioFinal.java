@@ -18,8 +18,8 @@ public static void main(String args[]) throws InterruptedException {
 		Livro livro6 = new Livro(6, "Luísa Marilac/Nana Queiroz",1,"Eu, travesti: Memórias de Luísa Marilac");
 		Livro livro7 = new Livro(7, "Pedro Henrique Mendes Castilho",1,"Um livro para ser entendido");
 		Livro livro8 = new Livro(8, "João Silvério Trevisan",1,"Devassos no Paraíso: A homossexualidade no Brasil, da colônia à atualidade ");
-		Livro livro9 = new Livro(9, "Luísa Marilac/Nana Queiroz",4,"Eu, travesti: Memórias de Luísa Marilac");
-		Livro livro10 = new Livro(10, "Luísa Marilac/Nana Queiroz",4,"Eu, travesti: Memórias de Luísa Marilac");
+		Livro livro9 = new Livro(9, "Luísa Marilac/Nana Queiroz",1,"Eu, travesti: Memórias de Luísa Marilac");
+		Livro livro10 = new Livro(10, "Luísa Marilac/Nana Queiroz",1,"Eu, travesti: Memórias de Luísa Marilac");
 		Livro livro11 = new Livro(11, "Djamila Ribeiro",4,"Pequeno manual antirracista");
 		Livro livro12 = new Livro(12, "Bell Hooks",4,"O feminismo é para todo mundo: Políticas arrebatadoras");
 		Livro livro13 = new Livro(13, "Sueli Carneiro",4,"Racismo, sexismo e desigualdade no Brasil");
@@ -83,7 +83,7 @@ public static void main(String args[]) throws InterruptedException {
 				System.out.println("------ BEM VINDE AO COFRE ------");
 				Thread.sleep(1000);
 				System.out.println();
-				System.out.println("  A Biblioteca Solidaria e Inclusiva ");
+				System.out.println("  A Biblioteca Solidária e Inclusiva ");
 				Thread.sleep(1000);
 				System.out.println();
 				System.out.println("  "+f.format(data));
@@ -111,9 +111,7 @@ public static void main(String args[]) throws InterruptedException {
 					case 1:
 						contador++;
 						idDoLivro = contador;
-						// System.out.print("\nInforme um identificador para este livro: ");
-						// idDoLivro =  ler.nextInt();
-	
+							
 						ler.nextLine();
 						
 						System.out.print("Informe o título do livro: ");
@@ -122,7 +120,7 @@ public static void main(String args[]) throws InterruptedException {
 						System.out.print("Informe o autor do livro: ");
 						autorDoLivro = ler.nextLine();
 						
-						System.out.print("\nInforme o gênero do livro:\n1 --> LGBT\n2 --> Infantil\n3 --> Autoajuda\n4--> Ciências Sociais\nInsira o número correspondente:");
+						System.out.print("\nInforme o gênero do livro:\n1 --> LGBTQIA+\n2 --> Infantil\n3 --> Autoajuda\n4--> Ciências Sociais\nInsira o número correspondente:");
 						generoDoLivro = ler.nextInt();
 						
 						Livro livro = new Livro(idDoLivro, autorDoLivro, generoDoLivro, tituloDoLivro);
@@ -143,7 +141,7 @@ public static void main(String args[]) throws InterruptedException {
 						
 						if (opcaoDesejada < 0 || opcaoDesejada > 3) 
 						{
-							System.out.print("Número inválido. Por favor, insira um número entre 0 e 2: ");
+							System.out.print("Número inválido. Por favor, insira um número entre 1 e 3: ");
 						}	
 							switch(opcaoDesejada) {
 						
@@ -171,7 +169,7 @@ public static void main(String args[]) throws InterruptedException {
 							case 2:
 								List<Livro> todosOsLivros1 = biblioteca.quaisLivrosContemNaBiblioteca();
 								
-								System.out.println("Você gostaria de visualizar os livros de qual gênero?\n1 --> LGBT\n2 --> Infantil\n3 --> Autoajuda\n4 --> Ciências Sociais\nInsira o número correspondente:");
+								System.out.println("Você gostaria de visualizar os livros de qual gênero?\n1 --> LGBTQIA+\n2 --> Infantil\n3 --> Autoajuda\n4 --> Ciências Sociais\nInsira o número correspondente:");
 								generoDoLivro = ler.nextInt();
 								
 								switch(generoDoLivro) {
@@ -249,7 +247,7 @@ public static void main(String args[]) throws InterruptedException {
 					case 4:
 						List<Livro> todosOsLivros1 = biblioteca.quaisLivrosContemNaBiblioteca();
 						
-						System.out.println("Você gostaria de visualizar os livros de qual gênero?\n1 --> LGBT\n2 --> Infantil\n3 --> Autoajuda\n4 --> Ciências Sociais\nInsira o número correspondente:");
+						System.out.println("Você gostaria de visualizar os livros de qual gênero?\n1 --> LGBTQIA+\n2 --> Infantil\n3 --> Autoajuda\n4 --> Ciências Sociais\nInsira o número correspondente:");
 						generoDoLivro = ler.nextInt();
 						
 						switch(generoDoLivro) {
@@ -268,19 +266,26 @@ public static void main(String args[]) throws InterruptedException {
 							}
 							break;
 						case 3:
-							for(Livro i : todosOsLivros1) {
-								if(i.getGenero() == 3) {
+							for(Livro i : todosOsLivros1) 
+							{
+								if(i.getGenero() == 3) 
+								{
+									System.out.println("ID - "+i.getId()+" ***** Título - "+i.getTitulo()+" ***** Autor - "+i.getAutor()+" ***** Gênero - "+i.getGeneroString());
+								}
+							}
+							break;
+						case 4:
+							for(Livro i : todosOsLivros1) 
+							{
+								if(i.getGenero() == 4) 
+								{
 									System.out.println("ID - "+i.getId()+" ***** Título - "+i.getTitulo()+" ***** Autor - "+i.getAutor()+" ***** Gênero - "+i.getGeneroString());
 								}
 							}
 							break;
 						}
 								
-						}
-				
-					
-				
-				
+						}			
 			}while(opcaoDesejada != 0);
 		
 		System.out.println(nome+", obrigado por usar O Cofre!");
